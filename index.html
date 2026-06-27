@@ -463,7 +463,7 @@
       border-radius: var(--radius-sm);
       padding: 20px 22px;
     }
-    .results h4 { color: var(--accent); }
+    .results h4 { color: var(--accent); margin: 0 0 12px; }
     .results ul.clean li { color: var(--text); }
     .results ul.clean li::before { background: var(--accent); }
 
@@ -556,8 +556,8 @@
         </button>
         <nav class="nav-links" id="navLinks">
           <a href="#about" data-i18n="nav-about">О себе</a>
-          <a href="#projects" data-i18n="nav-projects">Проекты</a>
           <a href="#skills" data-i18n="nav-skills">Навыки</a>
+          <a href="#projects" data-i18n="nav-projects">Проекты</a>
           <a href="#contact" class="nav-cta" data-i18n="nav-contact">Связаться</a>
         </nav>
       </div>
@@ -803,7 +803,7 @@
               <span class="m-note">Полная версия GDD — под NDA</span>
             </div>
 
-            <p class="p-pitch">Idle / Dress-up для Steam: вёл дизайн, арт-дирекшн и продакшн — от документации до трейлера.</p>
+            <p class="p-pitch">Выпустил Idle/Dress-up в Steam — вёл дизайн, арт-дирекшн и продакшн.</p>
 
             <div class="media">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
@@ -812,14 +812,25 @@
             </div>
 
             <div class="p-block">
-              <h4>Обязанности</h4>
+              <h4>Контекст</h4>
+              <p style="color:var(--text-dim);margin:0;font-size:14.5px;">В дресс-ап-игре визуал — это сам продукт, поэтому дизайн и арт неразделимы. Я вёл оба слоя: проектировал игровые системы и формировал визуальный стиль.</p>
+            </div>
+
+            <div class="p-block">
+              <h4>Зона ответственности</h4>
               <ul class="clean">
-                <li>Подготовил <b>пакет документации</b> для разработчиков и художников.</li>
-                <li>Провёл маркет-анализ, собрал и разобрал референсы.</li>
-                <li>Определил технический стек и настроил <b>Steamworks</b>.</li>
-                <li>Курировал арт по персонажам и UI/UX: ставил задачи, согласовывал концепты, финальные арты и анимации.</li>
-                <li>Смонтировал трейлер и промо-материалы.</li>
-                <li>Планировал и координировал разработку, держал сроки и качество.</li>
+                <li><b>Дизайн и документация:</b> GDD, маркет-анализ, референсы.</li>
+                <li><b>Арт-дирекшн:</b> ставил задачи по персонажам и UI/UX, согласовывал концепты, финальные арты и анимации.</li>
+                <li><b>Продакшн:</b> технический стек и Steamworks, планирование и сроки, монтаж трейлера.</li>
+              </ul>
+            </div>
+
+            <div class="results">
+              <h4>Результаты</h4>
+              <ul class="clean">
+                <li>Сильное ядро: <b>11% игроков — 100+ часов</b>, 22% — больше 20.</li>
+                <li><b>~57 000 установок</b> и <b>~20 000 игроков</b> на Steam.</li>
+                <li>Дискорд-сообщество — <b>1 300+ участников</b> и растёт.</li>
               </ul>
             </div>
           </article>
@@ -835,16 +846,27 @@
               <span class="badge badge--live">● Выпущено</span>
             </div>
 
-            <p class="p-pitch">Clicker / Management / Idle для мобайла: спроектировал все системы; игра выпущена в Google Play.</p>
-
             <div class="p-meta">
               <span class="meta-chip"><b>Жанр:</b> Clicker · Management · Idle</span>
               <span class="meta-chip"><b>Платформа:</b> Mobile</span>
               <span class="meta-chip role">Game Designer</span>
             </div>
 
+            <div class="materials">
+              <a class="btn btn--sm" href="https://play.google.com/store/apps/details?id=com.RPGames.ShardsOfTime" target="_blank" rel="noopener">Google Play ↗</a>
+              <span class="m-note">Фрагменты документации — по запросу</span>
+            </div>
+
+            <p class="p-pitch">Спроектировал все системы мобильного Clicker/Idle — игра вышла в Google Play.</p>
+
+            <div class="media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
+              <span class="m-label">Скриншот / GIF</span>
+              <span class="m-sub">Экономика · прогрессия · UI</span>
+            </div>
+
             <div class="p-block">
-              <h4>Обязанности</h4>
+              <h4>Зона ответственности</h4>
               <ul class="clean">
                 <li><b>Спроектировал все системы:</b> механики, экономика, прогрессия, монетизация, генерация контента, аналитика, tutorial и FTUE.</li>
                 <li>Подготовил и вёл GDD.</li>
@@ -856,15 +878,9 @@
             <div class="results">
               <h4>Результаты</h4>
               <ul class="clean">
-                <li>Подготовил <b>полную проектную документацию</b>.</li>
-                <li>Довёл арт до финала: UI, персонажи и анимации завершены.</li>
-                <li>Игра <b>выпущена в Google Play</b>; идёт сбор пользовательских метрик.</li>
+                <li>Игра вышла в Google Play — <b>все системы и контент в релизе</b>.</li>
+                <li>Собираю пользовательские метрики для калибровки баланса и экономики.</li>
               </ul>
-            </div>
-
-            <div class="materials">
-              <a class="btn btn--sm" href="https://play.google.com/store/apps/details?id=com.RPGames.ShardsOfTime" target="_blank" rel="noopener">Google Play ↗</a>
-              <span class="m-note">Фрагменты документации — по запросу</span>
             </div>
           </article>
 
