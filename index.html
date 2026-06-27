@@ -286,6 +286,10 @@
     .panel.lead-panel p { margin: 0 0 14px; color: var(--text-dim); }
     .panel.lead-panel p:last-child { margin-bottom: 0; }
     .panel.lead-panel strong { color: var(--text); font-weight: 600; }
+    .panel.lead-panel { display: flex; flex-direction: column; overflow: hidden; }
+    .about-mascot { margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .about-mascot .cap { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--text-dim); margin: 0; max-width: 240px; line-height: 1.4; }
+    .about-mascot svg { width: 85%; max-width: 360px; height: auto; color: var(--accent); filter: drop-shadow(0 0 8px rgba(200, 246, 78, 0.5)); display: block; margin-bottom: -30px; }
 
     .skills { display: grid; gap: 18px; }
     .skill-row { }
@@ -608,6 +612,22 @@
             <p>Сильная сторона — <strong>взаимосвязанные игровые системы</strong>: боевые механики и прогрессия, PvP, снаряжение и клановые механики. Поверх этого — событийный контент, монетизация и LiveOps.</p>
             <p><strong>Проектирую от цели</strong>: система должна быть интересной игроку и закрывать задачу продукта. Проверяю решения на плейтестах и метриках и итеративно дорабатываю до нужного результата.</p>
             <p>В небольшой команде беру на себя <strong>весь гейм-дизайн и арт-дирекшн</strong>: GDD и конфиги, UX-макеты и работа с художниками, планирование и контроль качества — это снимает с команды часть нагрузки на старте.</p>
+            <div class="about-mascot">
+              <p class="cap">Дочитал раздел до конца? Держи мишку.</p>
+              <svg viewBox="0 44 400 278" fill="none" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M97.8321 310.687C93.8478 250.409 91.4278 163.827 124.259 127.664C140.43 109.851 164.023 111.991 202.406 111.991C229.619 111.991 264.358 110.277 281.616 131.852C311.146 168.764 298.683 264.684 298.683 311.051"/>
+                  <path d="M144.124 311.051C136.474 262.469 134.416 183.062 194.663 169.701C207.312 166.893 221.213 165.153 232.963 171.017C266.992 188.002 262.677 253.226 262.677 283.72C262.677 292.926 260.169 316.401 260.169 309.948"/>
+                  <path d="M183.462 181.24C200.402 201.868 210.883 201.868 224.922 170.996"/>
+                  <path d="M204.051 203.804C202.763 220.798 206.354 237.682 206.354 254.379"/>
+                  <path d="M152.961 259.282C187.589 272.193 219.445 257.459 251.85 248.804"/>
+                  <path d="M134.745 112.357C117.202 62.5071 50.6561 130.859 104.853 148.95"/>
+                  <path d="M271.369 109.451C289.331 54.1644 344.696 121.514 296.13 135.982"/>
+                  <path d="M178.985 145.605C178.272 142.3 179.24 139.552 179.368 136.527"/>
+                  <path d="M222.711 142.102C222.711 139.51 222.711 136.914 222.711 134.322"/>
+                </g>
+              </svg>
+            </div>
           </div>
           <div class="panel reveal" id="skills">
             <div class="skills">
