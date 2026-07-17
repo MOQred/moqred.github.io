@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Дмитрий Радченко — Game Designer · Systems & Player Experience</title>
-  <meta name="description" content="Портфолио Дмитрия Радченко — Game Designer. Системный и боевой дизайн, прогрессия и игровой опыт. Empire City, MISHA (Steam), Shards of Time, Slot RPG, Space Wanderer." />
+  <meta name="description" content="Портфолио Дмитрия Радченко — Game Designer. Системный и боевой дизайн, прогрессия и игровой опыт. Empire City, Shards of Time, MISHA (Steam), Slot RPG, Space Wanderer." />
   <meta name="author" content="Дмитрий Радченко" />
   <meta name="theme-color" content="#0a0b0e" />
   <link rel="canonical" href="https://moqred.github.io/b2p.html" />
@@ -13,6 +13,7 @@
   <meta property="og:title" content="Дмитрий Радченко — Game Designer · Systems & Player Experience" />
   <meta property="og:description" content="Системный и боевой дизайн, прогрессия и игровой опыт. Кейсы с PC/Steam и мобайла: от прототипа до релиза." />
   <meta property="og:url" content="https://moqred.github.io/b2p.html" />
+  <meta property="og:image" content="https://moqred.github.io/images/og-image.jpg" />
 
   <script type="application/ld+json">
   {
@@ -227,6 +228,16 @@
     .media .m-label { font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
     .media .m-sub { font-size: 11.5px; opacity: 0.8; }
     .media img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+    .media:has(img) { border: 0; padding: 0; background: var(--bg-2); position: relative; overflow: hidden; }
+    .media .slides { display: flex; width: 100%; height: 100%; transition: transform 0.45s var(--ease); }
+    .media .slides img { flex: 0 0 100%; border-radius: 0; }
+    .m-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border-strong); background: rgba(10, 11, 14, 0.65); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 0 3px; transition: color 0.2s, border-color 0.2s; }
+    .m-nav:hover { color: var(--accent); border-color: var(--accent); }
+    .m-prev { left: 12px; }
+    .m-next { right: 12px; }
+    .m-dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 7px; }
+    .m-dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255, 255, 255, 0.35); cursor: pointer; transition: background 0.2s; }
+    .m-dots button.active { background: var(--accent); }
 
     .p-block { margin-top: 24px; }
     .p-block h4 { font-family: "JetBrains Mono", monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin: 0 0 12px; font-weight: 600; }
@@ -494,11 +505,14 @@
 
             <p class="p-pitch" data-i18n="p1-pitch">Спроектировал с нуля <b>Auto battler-направление</b> и довёл его до релиза как полноценный режим внутри живого проекта: боевая система, юниты, PvP, прогрессия.</p>
 
-            <!-- Замените блок .media на <img src="..."> когда добавите скриншот/GIF -->
-            <div class="media" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label" data-i18n="p1-media-l">Скриншот / GIF боя</span>
-              <span class="m-sub" data-i18n="p1-media-s">Auto battler · PvP-арена · экраны юнитов</span>
+            <div class="media media-slider">
+              <div class="slides">
+                <img src="images/ec-battle.webp" alt="Empire City — auto battler combat" loading="lazy" />
+                <img src="images/ec-arena.webp" alt="Empire City — PvP arena" loading="lazy" />
+              </div>
+              <button class="m-nav m-prev" type="button" aria-label="Previous screenshot">‹</button>
+              <button class="m-nav m-next" type="button" aria-label="Next screenshot">›</button>
+              <div class="m-dots"><button type="button" class="active" aria-label="Screenshot 1"></button><button type="button" aria-label="Screenshot 2"></button></div>
             </div>
 
             <div class="p-block">
@@ -577,10 +591,8 @@
 
             <p class="p-pitch" data-i18n="p2-pitch">Спроектировал все системы мобильного incremental-кликера — игра вышла в Google Play.</p>
 
-            <div class="media" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label" data-i18n="media-shot">Скриншот / GIF</span>
-              <span class="m-sub" data-i18n="p2-media-s">Экономика · прогрессия · UI</span>
+            <div class="media">
+              <img src="images/shards.webp" alt="Shards of Time — heroes, gear, time travel, combat and crafting" loading="lazy" />
             </div>
 
             <div class="p-block">
@@ -650,10 +662,8 @@
 
             <p class="p-pitch" data-i18n="p3-pitch">Выпустил игру в Steam: вёл дизайн, арт-дирекшн и продакшн, от GDD и Steamworks до трейлера.</p>
 
-            <div class="media" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label" data-i18n="media-trailer">Скриншот / трейлер</span>
-              <span class="m-sub" data-i18n="p3-media-s">Капсула Steam · персонажи · UI</span>
+            <div class="media">
+              <img src="images/misha.webp" alt="MISHA — promo art with the character and outfits" loading="lazy" />
             </div>
 
             <div class="p-block">
@@ -697,12 +707,6 @@
               <span class="meta-chip" data-i18n="p4-genre"><b>Жанр:</b> Roguelike-deckbuilder · Roguelite</span>
               <span class="meta-chip" data-i18n="p4-plat"><b>Платформы:</b> PC (Steam) · Mobile</span>
               <span class="meta-chip role">Game Designer / Art Director</span>
-            </div>
-
-            <div class="media" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label" data-i18n="p4-media-l">Скриншот / GIF забега</span>
-              <span class="m-sub" data-i18n="p4-media-s">Бой · сборка билда · экраны encounter'ов</span>
             </div>
 
             <div class="p-block">
@@ -824,6 +828,22 @@
       });
     }
 
+    // Media slider
+    document.querySelectorAll(".media-slider").forEach((slider) => {
+      const slides = slider.querySelector(".slides");
+      const dots = Array.from(slider.querySelectorAll(".m-dots button"));
+      const count = slides.children.length;
+      let idx = 0;
+      const go = (n) => {
+        idx = (n + count) % count;
+        slides.style.transform = "translateX(-" + idx * 100 + "%)";
+        dots.forEach((d, k) => d.classList.toggle("active", k === idx));
+      };
+      slider.querySelector(".m-prev").addEventListener("click", () => go(idx - 1));
+      slider.querySelector(".m-next").addEventListener("click", () => go(idx + 1));
+      dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+    });
+
     const reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
@@ -910,8 +930,6 @@
       "badge-live": "● Released",
       "badge-steam": "● Released · Steam",
       "badge-craft": "● Crafting system",
-      "media-trailer": "Screenshot / trailer",
-      "media-shot": "Screenshot / GIF",
       "h-context": "Context",
       "h-own": "Ownership",
       "h-sys": "Key systems",
@@ -926,8 +944,6 @@
       "p1-pitch": "Designed the <b>Auto battler direction</b> from scratch and took it to release as a full game mode inside a live project: combat system, units, PvP, progression.",
       "p1-genre": "<b>Genre:</b> Auto battler · Strategy",
       "p1-plat": "<b>Platforms:</b> Web · iOS · Android · Steam",
-      "p1-media-l": "Combat screenshot / GIF",
-      "p1-media-s": "Auto battler · PvP arena · unit screens",
       "p1-ctx": "Joined when the team was just starting the Auto battler: an early prototype with no documentation or systems design. The job was to turn it into a full game mode and take it to release.",
       "p1-o1": "<b>Combat system and units:</b> army roles, combat behavior, skills, upgrades, numbers balance.",
       "p1-o2": "<b>Progression and PvP:</b> squad development, ranked arena, clan mechanics, long-term player goals.",
@@ -950,7 +966,6 @@
       "p3-pitch": "Released a game on Steam: led design, art direction and production, from GDD and Steamworks to the trailer.",
       "p3-genre": "<b>Genre:</b> Idle · Dress-up",
       "p3-plat": "<b>Platform:</b> PC (Steam)",
-      "p3-media-s": "Steam capsule · characters · UI",
       "p3-ctx": "In a dress-up game the visuals are the product, so design and art are inseparable. I ran both layers: designed the game systems and shaped the visual style.",
       "p3-o1": "<b>Design and documentation:</b> GDD, market analysis, references.",
       "p3-o2": "<b>Art direction:</b> set tasks for characters and UI/UX, approved concepts, final art and animations.",
@@ -961,7 +976,6 @@
       "p2-pitch": "Designed every system of a mobile incremental clicker; the game launched on Google Play.",
       "p2-genre": "<b>Genre:</b> Clicker · Management · Idle",
       "p2-plat": "<b>Platform:</b> Mobile",
-      "p2-media-s": "Economy · progression · UI",
       "p2-o1": "<b>Designed all game systems</b> and the links between them: from the core loop and economy to crafting, skills and prestige.",
       "p2-o2": "<b>Formula-driven economy, no tables:</b> the cost and effect of any upgrade are computed by formulas. Configs lived in a Python/Django admin I designed together with the backend developer.",
       "p2-o3": "Owned the GDD. Designed UI/UX myself; for art (characters, icons, animations) set references, concepts and feedback.",
@@ -980,8 +994,6 @@
       "p4-pitch": "A roguelike-deckbuilder aimed at PC (Steam): designed all systems and built a working prototype.",
       "p4-genre": "<b>Genre:</b> Roguelike-deckbuilder · Roguelite",
       "p4-plat": "<b>Platforms:</b> PC (Steam) · Mobile",
-      "p4-media-l": "Run screenshot / GIF",
-      "p4-media-s": "Combat · build assembly · encounter screens",
       "p4-o1": "<b>Designed all systems:</b> core loop, combat, encounters, economy, progression.",
       "p4-o2": "Wrote and maintained the GDD.",
       "p4-o3": "Wrote specs for developers and supported the prototype build.",
@@ -1001,7 +1013,7 @@
       "contact-p": "Open to interesting offers, from indie teams to large studios. I design systems and combat, shaping them into a cohesive player experience.<br />The fastest way to reach me is Telegram."
     };
     const DOC_TITLE_EN = "Dmitry Radchenko — Game Designer · Systems & Player Experience";
-    const DOC_DESC_EN = "Portfolio of Dmitry Radchenko — Game Designer. Systems and combat design, progression and player experience. Empire City, MISHA (Steam), Shards of Time, Slot RPG, Space Wanderer.";
+    const DOC_DESC_EN = "Portfolio of Dmitry Radchenko — Game Designer. Systems and combat design, progression and player experience. Empire City, Shards of Time, MISHA (Steam), Slot RPG, Space Wanderer.";
     const i18nEls = document.querySelectorAll("[data-i18n]");
     const I18N_ORIG = new Map();
     i18nEls.forEach((el) => I18N_ORIG.set(el, el.innerHTML));
