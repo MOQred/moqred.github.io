@@ -6,12 +6,29 @@
   <title>Дмитрий Радченко — Game Designer · Systems, Economy, LiveOps</title>
   <meta name="description" content="Портфолио Дмитрия Радченко — Game Designer. Системный дизайн, экономика, прогрессия, монетизация и LiveOps. Empire City, MISHA, Shards of Time, Slot RPG, Space Wanderer." />
   <meta name="author" content="Дмитрий Радченко" />
+  <meta name="theme-color" content="#0a0b0e" />
+  <link rel="canonical" href="https://moqred.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Дмитрий Радченко — Game Designer · Systems, Economy, LiveOps" />
   <meta property="og:description" content="Системный дизайн, экономика, прогрессия, монетизация и LiveOps. Кейсы из живых и в разработке проектов." />
   <meta property="og:url" content="https://moqred.github.io/" />
+  <meta property="og:image" content="https://moqred.github.io/images/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Дмитрий Радченко",
+    "alternateName": "Dmitry Radchenko",
+    "jobTitle": "Game Designer",
+    "url": "https://moqred.github.io/",
+    "email": "mailto:moqred@gmail.com",
+    "sameAs": ["https://t.me/MOQred", "https://github.com/MOQred"],
+    "knowsAbout": ["Game systems design", "Game economy", "Progression", "Monetization", "LiveOps"]
+  }
+  </script>
 
   <!-- Favicon (inline SVG) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0b0e'/%3E%3Cpath d='M9 22V10h4.2c3.4 0 5.6 2.3 5.6 6s-2.2 6-5.6 6H9zm3-2.6h1.1c1.8 0 2.8-1.2 2.8-3.4s-1-3.4-2.8-3.4H12v6.8z' fill='%23c8f64e'/%3E%3Ccircle cx='23' cy='12' r='2' fill='%235ad6ff'/%3E%3C/svg%3E" />
@@ -85,6 +102,26 @@
 
     a { color: inherit; text-decoration: none; }
 
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      background: var(--accent);
+      color: var(--ink);
+      padding: 10px 16px;
+      border-radius: 0 0 10px 0;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .skip-link:focus { left: 0; }
+
     .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
     .mono {
@@ -149,8 +186,7 @@
       font-weight: 600;
     }
     .nav-cta:hover { background: var(--accent) !important; color: var(--ink) !important; border-color: var(--accent); box-shadow: 0 6px 20px rgba(200, 246, 78, 0.3); }
-    .nav-links a.switch { color: var(--accent); border: 1px solid rgba(200, 246, 78, 0.35); }
-    .nav-links a.switch:hover { background: var(--accent-soft); }
+    .nav-links a.contact-link { display: none; }
 
     .nav-toggle {
       order: 3;
@@ -195,8 +231,6 @@
     .btn--primary:hover { box-shadow: 0 12px 38px rgba(200, 246, 78, 0.32); }
     .btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
     .btn--sm { padding: 8px 13px; font-size: 13px; border-radius: 9px; }
-    .btn--soon { opacity: 0.6; cursor: default; }
-    .btn--soon:hover { transform: none; border-color: var(--border); }
 
     /* ---------- Hero ---------- */
     .hero { padding: 92px 0 64px; position: relative; }
@@ -301,7 +335,6 @@
     .about-mascot svg { width: 85%; max-width: 360px; height: auto; color: var(--accent); filter: drop-shadow(0 0 8px rgba(200, 246, 78, 0.5)); display: block; margin-bottom: -30px; }
 
     .skills { display: grid; gap: 18px; }
-    .skill-row { }
     .skill-row .label {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
@@ -427,6 +460,16 @@
     .media .m-label { font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
     .media .m-sub { font-size: 11.5px; opacity: 0.8; }
     .media img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); display: block; }
+    .media:has(img) { border: 0; padding: 0; background: var(--bg-2); position: relative; overflow: hidden; }
+    .media .slides { display: flex; width: 100%; height: 100%; transition: transform 0.45s var(--ease); }
+    .media .slides img { flex: 0 0 100%; border-radius: 0; }
+    .m-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border-strong); background: rgba(10, 11, 14, 0.65); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 0 3px; transition: color 0.2s, border-color 0.2s; }
+    .m-nav:hover { color: var(--accent); border-color: var(--accent); }
+    .m-prev { left: 12px; }
+    .m-next { right: 12px; }
+    .m-dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 7px; }
+    .m-dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255, 255, 255, 0.35); cursor: pointer; transition: background 0.2s; }
+    .m-dots button.active { background: var(--accent); }
 
     .p-block { margin-top: 24px; }
     .p-block h4 {
@@ -438,6 +481,7 @@
       margin: 0 0 12px;
       font-weight: 600;
     }
+    .p-block .p-text { color: var(--text-dim); margin: 0; font-size: 14.5px; }
     ul.clean { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
     ul.clean li { position: relative; padding-left: 22px; color: var(--text-dim); font-size: 14.5px; }
     ul.clean li::before {
@@ -542,7 +586,6 @@
       }
       .nav-links.open { transform: translateY(0); }
       .nav-links a { padding: 12px 14px; font-size: 15px; }
-      .nav-links .lang-toggle { align-self: flex-start; margin: 10px 14px 2px; }
       .nav-toggle { display: inline-flex; }
     }
     @media (max-width: 520px) {
@@ -551,30 +594,45 @@
       .panel { padding: 20px; }
       .hero { padding: 64px 0 48px; }
     }
+    @media (max-width: 460px) {
+      .nav-cta { display: none; }
+      .nav-links a.contact-link { display: block; color: var(--accent); }
+    }
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; }
       .js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
     }
+    @media print {
+      body::before, body::after { display: none; }
+      header.nav, .nav-toggle, .media { display: none; }
+      body { background: #fff; color: #111; }
+      .panel, .project, .results, .contact-card, .sys { border-color: #ccc; background: #fff; }
+      .p-pitch, ul.clean li, .results ul.clean li, .sys p, .panel.lead-panel p, .sec-head p, .hero .lead { color: #222; }
+      .hero h1, .sec-head h2, .p-title, .sys h5, .contact-card h2 { color: #000; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; color: #555; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#projects" data-i18n="skip">К проектам</a>
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
       <a href="#top" class="brand"><span class="dot"></span>Дмитрий Радченко</a>
       <div class="nav-actions">
+        <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="ru">RU</button>
+        </div>
         <a href="#contact" class="nav-cta" data-i18n="nav-contact">Связаться</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Меню">
+        <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="navLinks">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
         <nav class="nav-links" id="navLinks">
           <a href="#about" data-i18n="nav-about">О себе</a>
           <a href="#skills" data-i18n="nav-skills">Навыки</a>
           <a href="#projects" data-i18n="nav-projects">Проекты</a>
-          <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
-            <button type="button" data-lang="en" class="active">EN</button>
-            <button type="button" data-lang="ru">RU</button>
-          </div>
+          <a href="#contact" class="contact-link" data-i18n="nav-contact">Связаться</a>
         </nav>
       </div>
     </div>
@@ -621,11 +679,11 @@
         </div>
         <div class="about-grid">
           <div class="panel lead-panel reveal">
-            <p>Сильная сторона — <strong>взаимосвязанные игровые системы</strong>: боевые механики и прогрессия, PvP, снаряжение и клановые механики. Поверх этого — событийный контент, монетизация и LiveOps.</p>
-            <p><strong>Проектирую от цели</strong>: система должна быть интересной игроку и закрывать задачу продукта. Проверяю решения на плейтестах и метриках и итеративно дорабатываю до нужного результата.</p>
-            <p>В небольшой команде беру на себя <strong>весь гейм-дизайн и арт-дирекшн</strong>: GDD и конфиги, UX-макеты и работа с художниками, планирование и контроль качества — это снимает с команды часть нагрузки на старте.</p>
+            <p data-i18n="about-p1">Сильная сторона — <strong>взаимосвязанные игровые системы</strong>: боевые механики и прогрессия, PvP, снаряжение и клановые механики. Поверх этого — событийный контент, монетизация и LiveOps.</p>
+            <p data-i18n="about-p2"><strong>Проектирую от цели</strong>: система должна быть интересной игроку и закрывать задачу продукта. Проверяю решения на плейтестах и метриках и итеративно дорабатываю до нужного результата.</p>
+            <p data-i18n="about-p3">В небольшой команде беру на себя <strong>весь гейм-дизайн и арт-дирекшн</strong>: GDD и конфиги, UX-макеты и работа с художниками, планирование и контроль качества — это снимает с команды часть нагрузки на старте.</p>
             <div class="about-mascot">
-              <p class="cap">Дочитал раздел до конца? Держи мишку.</p>
+              <p class="cap" data-i18n="mascot-cap">Дочитал раздел до конца? Держи мишку.</p>
               <svg viewBox="0 44 400 278" fill="none" aria-hidden="true">
                 <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M97.8321 310.687C93.8478 250.409 91.4278 163.827 124.259 127.664C140.43 109.851 164.023 111.991 202.406 111.991C229.619 111.991 264.358 110.277 281.616 131.852C311.146 168.764 298.683 264.684 298.683 311.051"/>
@@ -644,53 +702,53 @@
           <div class="panel reveal" id="skills">
             <div class="skills">
               <div class="skill-row">
-                <div class="label">Системный дизайн</div>
+                <div class="label" data-i18n="sk-l1">Системный дизайн</div>
                 <div class="tags">
                   <span class="tag">Core loop</span>
-                  <span class="tag">Боевые системы</span>
-                  <span class="tag">Прогрессия</span>
-                  <span class="tag">PvP и рейтинги</span>
-                  <span class="tag">Баланс и числовые модели</span>
+                  <span class="tag" data-i18n="sk-t-combat">Боевые системы</span>
+                  <span class="tag" data-i18n="sk-t-prog">Прогрессия</span>
+                  <span class="tag" data-i18n="sk-t-pvp">PvP и рейтинги</span>
+                  <span class="tag" data-i18n="sk-t-balance">Баланс и числовые модели</span>
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">Экономика и монетизация</div>
+                <div class="label" data-i18n="sk-l2">Экономика и монетизация</div>
                 <div class="tags">
-                  <span class="tag">Игровая экономика</span>
-                  <span class="tag">Ресурсные циклы</span>
-                  <span class="tag">Точки монетизации</span>
+                  <span class="tag" data-i18n="sk-t-econ">Игровая экономика</span>
+                  <span class="tag" data-i18n="sk-t-loops">Ресурсные циклы</span>
+                  <span class="tag" data-i18n="sk-t-monet">Точки монетизации</span>
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">LiveOps и контент</div>
+                <div class="label" data-i18n="sk-l3">LiveOps и контент</div>
                 <div class="tags">
-                  <span class="tag">Сезонные события</span>
-                  <span class="tag">Боевые пропуски</span>
-                  <span class="tag">Бандлы и оферы</span>
-                  <span class="tag">Новые фичи и механики</span>
+                  <span class="tag" data-i18n="sk-t-events">Сезонные события</span>
+                  <span class="tag" data-i18n="sk-t-bp">Боевые пропуски</span>
+                  <span class="tag" data-i18n="sk-t-bundles">Бандлы и оферы</span>
+                  <span class="tag" data-i18n="sk-t-features">Новые фичи и механики</span>
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">Документация и продакшн</div>
+                <div class="label" data-i18n="sk-l4">Документация и продакшн</div>
                 <div class="tags">
                   <span class="tag">GDD</span>
-                  <span class="tag">Конфиги</span>
+                  <span class="tag" data-i18n="sk-t-configs">Конфиги</span>
                   <span class="tag">FTUE / Tutorial</span>
-                  <span class="tag">Приоритизация</span>
-                  <span class="tag">Контент-план</span>
+                  <span class="tag" data-i18n="sk-t-prio">Приоритизация</span>
+                  <span class="tag" data-i18n="sk-t-cplan">Контент-план</span>
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">Арт-дирекшн</div>
+                <div class="label" data-i18n="sk-l5">Арт-дирекшн</div>
                 <div class="tags">
-                  <span class="tag">Концепт и референс-паки</span>
-                  <span class="tag">Кураторство художников</span>
+                  <span class="tag" data-i18n="sk-t-refs">Концепт и референс-паки</span>
+                  <span class="tag" data-i18n="sk-t-artists">Кураторство художников</span>
                   <span class="tag">UI/UX</span>
-                  <span class="tag">Формирование визуального стиля</span>
+                  <span class="tag" data-i18n="sk-t-style">Формирование визуального стиля</span>
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">Движки и графика</div>
+                <div class="label" data-i18n="sk-l6">Движки и графика</div>
                 <div class="tags">
                   <span class="tag">Unity</span>
                   <span class="tag">Unreal Engine 5</span>
@@ -700,7 +758,7 @@
                 </div>
               </div>
               <div class="skill-row">
-                <div class="label">Документы и AI</div>
+                <div class="label" data-i18n="sk-l7">Документы и AI</div>
                 <div class="tags">
                   <span class="tag">Confluence</span>
                   <span class="tag">Jira</span>
@@ -735,15 +793,15 @@
             <div class="p-top">
               <div>
                 <div class="p-index">01</div>
-                <h2 class="p-title">Empire City: построй империю!</h2>
+                <h3 class="p-title">Empire City: построй империю!</h3>
                 <span class="p-year mono">2025–2026</span>
               </div>
-              <span class="badge badge--live">● Выпущено · LiveOps</span>
+              <span class="badge badge--live" data-i18n="badge-liveops">● Выпущено · LiveOps</span>
             </div>
 
             <div class="p-meta">
-              <span class="meta-chip"><b>Жанр:</b> City-builder · Auto battler · Strategy</span>
-              <span class="meta-chip"><b>Платформы:</b> Web · iOS · Android · Steam</span>
+              <span class="meta-chip" data-i18n="p1-genre"><b>Жанр:</b> City-builder · Auto battler · Strategy</span>
+              <span class="meta-chip" data-i18n="p1-plat"><b>Платформы:</b> Web · iOS · Android · Steam</span>
               <span class="meta-chip role">Game Designer / System Designer</span>
             </div>
 
@@ -753,63 +811,66 @@
               <a class="btn btn--sm btn--ghost" href="https://play.google.com/store/apps/details?id=com.rbx.antique.android" target="_blank" rel="noopener">Google Play ↗</a>
             </div>
 
-            <p class="p-pitch">Спроектировал с нуля <b>Auto battler-направление</b> и встроил его в live City-builder как отдельный режим. Параллельно развивал городскую часть — LiveOps и новые механики.</p>
+            <p class="p-pitch" data-i18n="p1-pitch">Спроектировал с нуля <b>Auto battler-направление</b> и встроил его в live City-builder как отдельный режим. Параллельно развивал городскую часть — LiveOps и новые механики.</p>
 
-            <!-- Замените блок .media на <img src="..."> когда добавите скриншот/GIF -->
-            <div class="media">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label">Скриншот / GIF геймплея</span>
-              <span class="m-sub">Auto battler · PvP-арена · экраны прогрессии</span>
+            <div class="media media-slider">
+              <div class="slides">
+                <img src="images/ec-battle.webp" alt="Empire City — auto battler combat" loading="lazy" />
+                <img src="images/ec-arena.webp" alt="Empire City — PvP arena" loading="lazy" />
+              </div>
+              <button class="m-nav m-prev" type="button" aria-label="Previous screenshot">‹</button>
+              <button class="m-nav m-next" type="button" aria-label="Next screenshot">›</button>
+              <div class="m-dots"><button type="button" class="active" aria-label="Screenshot 1"></button><button type="button" aria-label="Screenshot 2"></button></div>
             </div>
 
             <div class="p-block">
-              <h4>Контекст</h4>
-              <p style="color:var(--text-dim);margin:0;font-size:14.5px;">Подключился, когда команда только начинала Auto battler: был ранний прототип без документации и системного дизайна. Из него нужно было собрать игровой режим и довести до релиза.</p>
+              <h4 data-i18n="h-context">Контекст</h4>
+              <p class="p-text" data-i18n="p1-ctx">Подключился, когда команда только начинала Auto battler: был ранний прототип без документации и системного дизайна. Из него нужно было собрать игровой режим и довести до релиза.</p>
             </div>
 
             <div class="p-block">
-              <h4>Зона ответственности</h4>
+              <h4 data-i18n="h-own">Зона ответственности</h4>
               <ul class="clean">
-                <li><b>Спроектировал Auto battler с нуля:</b> боевая прогрессия, PvP, развитие юнитов, клановые механики, долгосрочные цели игрока.</li>
-                <li><b>Вёл ключевые системы режима как Feature Owner</b> — от постановки целей до передачи в разработку и поддержки после релиза.</li>
-                <li><b>Городская часть:</b> вёл LiveOps (сезонные события, балансные правки, новые точки монетизации) и добавлял новые механики и фичи — от идеи до продакшена и поддержки.</li>
-                <li><b>Готовил документацию и UX-макеты</b> для художников и правил по ним отрисовку.</li>
+                <li data-i18n="p1-o1"><b>Спроектировал Auto battler с нуля:</b> боевая прогрессия, PvP, развитие юнитов, клановые механики, долгосрочные цели игрока.</li>
+                <li data-i18n="p1-o2"><b>Вёл ключевые системы режима как Feature Owner</b> — от постановки целей до передачи в разработку и поддержки после релиза.</li>
+                <li data-i18n="p1-o3"><b>Городская часть:</b> вёл LiveOps (сезонные события, балансные правки, новые точки монетизации) и добавлял новые механики и фичи — от идеи до продакшена и поддержки.</li>
+                <li data-i18n="p1-o4"><b>Готовил документацию и UX-макеты</b> для художников и правил по ним отрисовку.</li>
               </ul>
             </div>
 
             <div class="p-block">
-              <h4>Ключевые системы</h4>
+              <h4 data-i18n="h-sys">Ключевые системы</h4>
               <div class="systems">
                 <div class="sys">
-                  <h5>Дизайн юнитов</h5>
-                  <p>Полный цикл производства: концепт, постановка задач арт-команде, роль в армии, поведение в бою, скиллы, прокачка, баланс ресурсов и числовых значений.</p>
+                  <h5 data-i18n="p1-s1h">Дизайн юнитов</h5>
+                  <p data-i18n="p1-s1p">Полный цикл производства: концепт, постановка задач арт-команде, роль в армии, поведение в бою, скиллы, прокачка, баланс ресурсов и числовых значений.</p>
                 </div>
                 <div class="sys">
-                  <h5>PvP Арена</h5>
-                  <p>Рейтинговая система с ежедневными и сезонными наградами, отдельный верхний рейтинг с борьбой за конкретные места, состояния интерфейса под разные стадии сезона.</p>
+                  <h5 data-i18n="p1-s2h">PvP Арена</h5>
+                  <p data-i18n="p1-s2p">Рейтинговая система с ежедневными и сезонными наградами, отдельный верхний рейтинг с борьбой за конкретные места, состояния интерфейса под разные стадии сезона.</p>
                 </div>
                 <div class="sys">
-                  <h5>Клановый 4X-режим</h5>
-                  <p>4X-стратегия поверх автобатлера: кланы захватывают карту из связанных узлов. Главное — контроль связей: окружить боссов и перерезать снабжение соперника, чтобы его территория перестала приносить ресурсы.</p>
+                  <h5 data-i18n="p1-s3h">Клановый 4X-режим</h5>
+                  <p data-i18n="p1-s3p">4X-стратегия поверх автобатлера: кланы захватывают карту из связанных узлов. Главное — контроль связей: окружить боссов и перерезать снабжение соперника, чтобы его территория перестала приносить ресурсы.</p>
                 </div>
                 <div class="sys">
-                  <h5>Снаряжение отрядов</h5>
-                  <p>Слоты, редкость и качество как два независимых измерения, заточка, наборы предметов. Сочетание гарантированного (заточка) и рискованного (качество) улучшения — под разную аудиторию.</p>
+                  <h5 data-i18n="p1-s4h">Снаряжение отрядов</h5>
+                  <p data-i18n="p1-s4p">Слоты, редкость и качество как два независимых измерения, заточка, наборы предметов. Сочетание гарантированного (заточка) и рискованного (качество) улучшения — под разную аудиторию.</p>
                 </div>
                 <div class="sys sys--wide">
-                  <h5>Другие системы</h5>
-                  <p>PvE-режимы, клановый боевой пропуск, удерживающие механики (ежедневные усиления, контракты, жетоны прогресса) и другое.</p>
+                  <h5 data-i18n="p1-s5h">Другие системы</h5>
+                  <p data-i18n="p1-s5p">PvE-режимы, клановый боевой пропуск, удерживающие механики (ежедневные усиления, контракты, жетоны прогресса) и другое.</p>
                 </div>
               </div>
             </div>
 
             <div class="results">
-              <h4>Результаты</h4>
-              <p class="results-intro">Цифры — в долях и процентах, без абсолютов (NDA).</p>
+              <h4 data-i18n="h-res">Результаты</h4>
+              <p class="results-intro" data-i18n="p1-res-intro">Цифры — в долях и процентах, без абсолютов (NDA).</p>
               <ul class="clean">
-                <li>Режим за 7 месяцев вырос с 0 до <b>~35% выручки</b>, а выручка города <b>не упала</b> — новый доход, не за счёт города.</li>
-                <li>Режим даёт <b>≈⅔ выручки города</b> (без сквозной валюты): арена-батлпасс, подписка, юнит-офферы, шопы.</li>
-                <li><b>~67%</b> игроков с доступом заходят в бой ежедневно.</li>
+                <li data-i18n="p1-r1">Режим за 7 месяцев вырос с 0 до <b>~35% всей</b> выручки, а выручка города <b>не упала</b> — новый доход, не за счёт города.</li>
+                <li data-i18n="p1-r2">По профильным покупкам режим даёт <b>≈⅔ от города</b>: батлпасс, подписки, юнит-офферы, валюты режима.</li>
+                <li data-i18n="p1-r3"><b>~67%</b> игроков с доступом заходят в бой ежедневно.</li>
               </ul>
             </div>
           </article>
@@ -819,129 +880,125 @@
             <div class="p-top">
               <div>
                 <div class="p-index">02</div>
-                <h2 class="p-title">MISHA</h2>
+                <h3 class="p-title">MISHA</h3>
                 <span class="p-year mono">2025</span>
               </div>
-              <span class="badge badge--live">● Выпущено · LiveOps</span>
+              <span class="badge badge--live" data-i18n="badge-liveops">● Выпущено · LiveOps</span>
             </div>
 
             <div class="p-meta">
-              <span class="meta-chip"><b>Жанр:</b> Idle · Dress-up</span>
-              <span class="meta-chip"><b>Платформа:</b> PC (Steam)</span>
+              <span class="meta-chip" data-i18n="p2-genre"><b>Жанр:</b> Idle · Dress-up</span>
+              <span class="meta-chip" data-i18n="p2-plat"><b>Платформа:</b> PC (Steam)</span>
               <span class="meta-chip role">Game Designer / Art Lead</span>
             </div>
 
             <div class="materials">
-              <a class="btn btn--sm" href="https://store.steampowered.com/app/3868850?utm_source=gir" target="_blank" rel="noopener">Страница в Steam ↗</a>
-              <a class="btn btn--sm btn--ghost" href="https://github.com/MOQred/GDD_Hypercraft" target="_blank" rel="noopener">Фрагмент GDD ↗</a>
-              <span class="m-note">Полная версия GDD — под NDA</span>
+              <a class="btn btn--sm" href="https://store.steampowered.com/app/3868850?utm_source=gir" target="_blank" rel="noopener" data-i18n="lnk-steam">Страница в Steam ↗</a>
+              <a class="btn btn--sm btn--ghost" href="https://github.com/MOQred/GDD_Hypercraft" target="_blank" rel="noopener" data-i18n="lnk-gdd">Фрагмент GDD ↗</a>
+              <span class="m-note" data-i18n="note-gdd-nda">Полная версия GDD — под NDA</span>
             </div>
 
-            <p class="p-pitch">Выпустил Idle/Dress-up в Steam — вёл дизайн, арт-дирекшн и продакшн.</p>
+            <p class="p-pitch" data-i18n="p2-pitch">Выпустил Idle/Dress-up в Steam — вёл дизайн, арт-дирекшн и продакшн.</p>
 
             <div class="media">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label">Скриншот / трейлер</span>
-              <span class="m-sub">Капсула Steam · персонажи · UI</span>
+              <img src="images/misha.webp" alt="MISHA — promo art with the character and outfits" loading="lazy" />
             </div>
 
             <div class="p-block">
-              <h4>Контекст</h4>
-              <p style="color:var(--text-dim);margin:0;font-size:14.5px;">В Dress-up-игре визуал — это сам продукт, поэтому дизайн и арт неразделимы. Я вёл оба слоя: проектировал игровые системы и формировал визуальный стиль.</p>
+              <h4 data-i18n="h-context">Контекст</h4>
+              <p class="p-text" data-i18n="p2-ctx">В Dress-up-игре визуал — это сам продукт, поэтому дизайн и арт неразделимы. Я вёл оба слоя: проектировал игровые системы и формировал визуальный стиль.</p>
             </div>
 
             <div class="p-block">
-              <h4>Зона ответственности</h4>
+              <h4 data-i18n="h-own">Зона ответственности</h4>
               <ul class="clean">
-                <li><b>Дизайн и документация:</b> GDD, маркет-анализ, референсы.</li>
-                <li><b>Арт-дирекшн:</b> ставил задачи по персонажам и UI/UX, согласовывал концепты, финальные арты и анимации.</li>
-                <li><b>Продакшн:</b> технический стек и Steamworks, планирование и сроки, монтаж трейлера.</li>
+                <li data-i18n="p2-o1"><b>Дизайн и документация:</b> GDD, маркет-анализ, референсы.</li>
+                <li data-i18n="p2-o2"><b>Арт-дирекшн:</b> ставил задачи по персонажам и UI/UX, согласовывал концепты, финальные арты и анимации.</li>
+                <li data-i18n="p2-o3"><b>Продакшн:</b> технический стек и Steamworks, планирование и сроки, монтаж трейлера.</li>
               </ul>
             </div>
 
             <div class="results">
-              <h4>Результаты</h4>
+              <h4 data-i18n="h-res">Результаты</h4>
               <ul class="clean">
-                <li>Сильное ядро: <b>11% игроков — 100+ часов</b>, 22% — больше 20.</li>
-                <li><b>~57 000 установок</b> и <b>~20 000 игроков</b> на Steam.</li>
-                <li>Дискорд-сообщество — <b>1 300+ участников</b> и растёт.</li>
+                <li data-i18n="p2-r1">Сильное ядро: <b>11% игроков — 100+ часов</b>, 22% — больше 20.</li>
+                <li data-i18n="p2-r2"><b>~57 000 установок</b> и <b>~20 000 игроков</b> на Steam.</li>
+                <li data-i18n="p2-r3">Дискорд-сообщество — <b>1 300+ участников</b> и растёт.</li>
               </ul>
             </div>
           </article>
 
-          <!-- ===== Shard of Time ===== -->
+          <!-- ===== Shards of Time ===== -->
           <article class="project reveal">
             <div class="p-top">
               <div>
                 <div class="p-index">03</div>
-                <h2 class="p-title">Shards of Time: Idle Clicker</h2>
+                <h3 class="p-title">Shards of Time: Idle Clicker</h3>
                 <span class="p-year mono">2024–2025</span>
               </div>
-              <span class="badge badge--live">● Выпущено</span>
+              <span class="badge badge--live" data-i18n="badge-live">● Выпущено</span>
             </div>
 
             <div class="p-meta">
-              <span class="meta-chip"><b>Жанр:</b> Clicker · Management · Idle</span>
-              <span class="meta-chip"><b>Платформа:</b> Mobile</span>
+              <span class="meta-chip" data-i18n="p3-genre"><b>Жанр:</b> Clicker · Management · Idle</span>
+              <span class="meta-chip" data-i18n="p3-plat"><b>Платформа:</b> Mobile</span>
               <span class="meta-chip role">Game Designer</span>
             </div>
 
             <div class="materials">
               <a class="btn btn--sm" href="https://play.google.com/store/apps/details?id=com.RPGames.ShardsOfTime" target="_blank" rel="noopener">Google Play ↗</a>
-              <span class="m-note">Фрагменты документации — по запросу</span>
+              <span class="m-note" data-i18n="note-docs-req">Фрагменты документации — по запросу</span>
             </div>
 
-            <p class="p-pitch">Спроектировал все системы мобильного incremental-кликера — игра вышла в Google Play.</p>
+            <p class="p-pitch" data-i18n="p3-pitch">Спроектировал все системы мобильного incremental-кликера — игра вышла в Google Play.</p>
 
             <div class="media">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 14 4-4 5 5"/><path d="m14 13 2-2 5 5"/><circle cx="9" cy="9" r="1.5"/></svg>
-              <span class="m-label">Скриншот / GIF</span>
-              <span class="m-sub">Экономика · прогрессия · UI</span>
+              <img src="images/shards.webp" alt="Shards of Time — heroes, gear, time travel, combat and crafting" loading="lazy" />
             </div>
 
             <div class="p-block">
-              <h4>Зона ответственности</h4>
+              <h4 data-i18n="h-own">Зона ответственности</h4>
               <ul class="clean">
-                <li><b>Спроектировал все игровые системы</b> и связи между ними — от кор-лупа и экономики до крафта, скиллов и престижа.</li>
-                <li><b>Экономика на формулах, без таблиц:</b> стоимость любого апгрейда и его эффект считаются формулой. Конфиги вёл через Python/Django-админку, которую проектировал вместе с бэкендером.</li>
-                <li>Вёл GDD. UI/UX проектировал сам; по арту (персонажи, иконки, анимации) задавал референсы, концепты и фидбек.</li>
-                <li>Настраивал баланс по продакшн-метрикам.</li>
+                <li data-i18n="p3-o1"><b>Спроектировал все игровые системы</b> и связи между ними — от кор-лупа и экономики до крафта, скиллов и престижа.</li>
+                <li data-i18n="p3-o2"><b>Экономика на формулах, без таблиц:</b> стоимость любого апгрейда и его эффект считаются формулой. Конфиги вёл через Python/Django-админку, которую проектировал вместе с бэкендером.</li>
+                <li data-i18n="p3-o3">Вёл GDD. UI/UX проектировал сам; по арту (персонажи, иконки, анимации) задавал референсы, концепты и фидбек.</li>
+                <li data-i18n="p3-o4">Настраивал баланс по продакшн-метрикам.</li>
               </ul>
             </div>
 
             <div class="p-block">
-              <h4>Ключевые системы</h4>
+              <h4 data-i18n="h-sys">Ключевые системы</h4>
               <div class="systems">
                 <div class="sys">
-                  <h5>Аффиксы — ядро</h5>
-                  <p>Базовый слой свойств, к которому подключены снаряжение, скиллы, герои и артефакты — единый движок модификаторов на всю игру.</p>
+                  <h5 data-i18n="p3-s1h">Аффиксы — ядро</h5>
+                  <p data-i18n="p3-s1p">Базовый слой свойств, к которому подключены снаряжение, скиллы, герои и артефакты — единый движок модификаторов на всю игру.</p>
                 </div>
                 <div class="sys">
-                  <h5>Кузня</h5>
-                  <p>Крафт снаряжения через гачу: свойства и редкость предметов генерируются случайно из настроенных пулов — по модели лута Diablo. Сама кузня прокачивается под новые редкости и шансы.</p>
+                  <h5 data-i18n="p3-s2h">Кузня</h5>
+                  <p data-i18n="p3-s2p">Крафт снаряжения через гачу: свойства и редкость предметов генерируются случайно из настроенных пулов — по модели лута Diablo. Сама кузня прокачивается под новые редкости и шансы.</p>
                 </div>
                 <div class="sys">
-                  <h5>Герои и скиллы</h5>
-                  <p>Прокачка героев и их способности, бонусные уровни, манапул и его регенерация, взаимодействие скиллов с другими системами.</p>
+                  <h5 data-i18n="p3-s3h">Герои и скиллы</h5>
+                  <p data-i18n="p3-s3p">Прокачка героев и их способности, бонусные уровни, манапул и его регенерация, взаимодействие скиллов с другими системами.</p>
                 </div>
                 <div class="sys">
-                  <h5>Престиж и артефакты</h5>
-                  <p>Сброс прогресса ради спец-валюты; артефакты на аффиксах с вечными бонусами, сет-гача и их прокачка.</p>
+                  <h5 data-i18n="p3-s4h">Престиж и артефакты</h5>
+                  <p data-i18n="p3-s4p">Сброс прогресса ради спец-валюты; артефакты на аффиксах с вечными бонусами, сет-гача и их прокачка.</p>
                 </div>
                 <div class="sys sys--wide">
-                  <h5>Удержание и LiveOps</h5>
-                  <p>Маскот с наградой по тапу, удвоение за рекламу, майлстоуны — механики, которые возвращают игрока в сессию.</p>
+                  <h5 data-i18n="p3-s5h">Удержание и LiveOps</h5>
+                  <p data-i18n="p3-s5p">Маскот с наградой по тапу, удвоение за рекламу, майлстоуны — механики, которые возвращают игрока в сессию.</p>
                 </div>
               </div>
             </div>
 
             <div class="results">
-              <h4>Результаты</h4>
-              <p class="results-intro">Игру выпустили осознанно content-limited: сначала кор-луп, чтобы снять аналитику на живых игроках и расширять по данным.</p>
+              <h4 data-i18n="h-res">Результаты</h4>
+              <p class="results-intro" data-i18n="p3-res-intro">Игру выпустили осознанно content-limited: сначала кор-луп, чтобы снять аналитику на живых игроках и расширять по данным.</p>
               <ul class="clean">
-                <li><b>FTUE проходят 80% игроков</b>, 64% доходят до мета-петли (престижа).</li>
-                <li>Удержание — <b>D1 32%, D7 15%, D30 5%</b>. Для idle это хорошие показатели: D7 у верхней границы жанра, на D30 держится устойчивое ядро.</li>
-                <li>Кор-луп подтверждён. Следующий рычаг роста — обвязка удержания: соц-слой, ивенты, дейли-структура.</li>
+                <li data-i18n="p3-r1"><b>FTUE проходят 80% игроков</b>, 64% доходят до мета-петли (престижа).</li>
+                <li data-i18n="p3-r2">Удержание — <b>D1 32%, D7 15%, D30 5%</b>; D7 — у верхней границы жанра.</li>
+                <li data-i18n="p3-r3">Кор-луп подтверждён. Следующий рычаг роста — обвязка удержания: соц-слой, ивенты, дейли-структура.</li>
               </ul>
             </div>
           </article>
@@ -951,41 +1008,41 @@
             <div class="p-top">
               <div>
                 <div class="p-index">04</div>
-                <h2 class="p-title">Slot RPG</h2>
+                <h3 class="p-title">Slot RPG</h3>
                 <span class="p-year mono">2025</span>
               </div>
-              <span class="badge badge--proto">● Прототипирование</span>
+              <span class="badge badge--proto" data-i18n="badge-proto">● Прототипирование</span>
             </div>
 
-            <p class="p-pitch">Roguelike-deckbuilder для PC и мобайла: спроектировал все системы и довёл прототип до играбельного состояния.</p>
+            <p class="p-pitch" data-i18n="p4-pitch">Roguelike-deckbuilder для PC и мобильных: спроектировал все системы и собрал играбельный прототип.</p>
 
             <div class="p-meta">
-              <span class="meta-chip"><b>Жанр:</b> Roguelike-deckbuilder · Roguelite</span>
-              <span class="meta-chip"><b>Платформы:</b> PC (Steam) · Mobile</span>
-              <span class="meta-chip role">Game Designer</span>
+              <span class="meta-chip" data-i18n="p4-genre"><b>Жанр:</b> Roguelike-deckbuilder · Roguelite</span>
+              <span class="meta-chip" data-i18n="p4-plat"><b>Платформы:</b> PC (Steam) · Mobile</span>
+              <span class="meta-chip role">Game Designer / Art Director</span>
             </div>
 
             <div class="p-block">
-              <h4>Обязанности</h4>
+              <h4 data-i18n="h-own">Зона ответственности</h4>
               <ul class="clean">
-                <li><b>Спроектировал все системы:</b> core loop, боевая механика, encounter'ы, экономика, прогрессия.</li>
-                <li>Подготовил и вёл GDD.</li>
-                <li>Передавал спецификации разработчикам и довёл прототип до рабочего состояния.</li>
-                <li>Управлял арт-отделом: брифы и референс-паки, приоритизация задач по персонажам и UI/UX, согласование концептов и финальных ассетов.</li>
+                <li data-i18n="p4-o1"><b>Спроектировал все системы:</b> кор-луп, боёвка, энкаунтеры, экономика, прогрессия.</li>
+                <li data-i18n="p4-o2">Подготовил и вёл GDD.</li>
+                <li data-i18n="p4-o3">Писал спецификации для разработчиков и сопровождал сборку прототипа.</li>
+                <li data-i18n="p4-o4"><b>Арт-дирекшн — на мне:</b> финальные решения по стилю и визуалу, брифы и референс-паки, приоритеты по персонажам и UI/UX, приёмка концептов и ассетов.</li>
               </ul>
             </div>
 
             <div class="results">
-              <h4>Результаты</h4>
+              <h4 data-i18n="h-res">Результаты</h4>
               <ul class="clean">
-                <li>Собрал GDD со всеми ключевыми системами — основу для сборки прототипа.</li>
-                <li>Рабочий прототип соответствовал спецификациям, получил <b>положительные отзывы внутренних плейтестов</b> и дорабатывается по фидбэку.</li>
+                <li data-i18n="p4-r1">Прототип собрали по спецификациям — играбельный, с ключевыми системами из GDD.</li>
+                <li data-i18n="p4-r2"><b>Внутренние плейтесты — положительные</b>, прототип дорабатывается по фидбэку.</li>
               </ul>
             </div>
 
             <div class="materials">
-              <a class="btn btn--sm btn--ghost" href="https://github.com/MOQred/GDD_SlotRPG" target="_blank" rel="noopener">Фрагмент GDD ↗</a>
-              <span class="m-note">Полная версия — под NDA</span>
+              <a class="btn btn--sm btn--ghost" href="https://github.com/MOQred/GDD_SlotRPG" target="_blank" rel="noopener" data-i18n="lnk-gdd">Фрагмент GDD ↗</a>
+              <span class="m-note" data-i18n="note-nda">Полная версия — под NDA</span>
             </div>
           </article>
 
@@ -994,43 +1051,41 @@
             <div class="p-top">
               <div>
                 <div class="p-index">05</div>
-                <h2 class="p-title">Space Wanderer</h2>
+                <h3 class="p-title">Space Wanderer</h3>
                 <span class="p-year mono">2024</span>
               </div>
-              <span class="badge badge--proto">● Система крафта</span>
+              <span class="badge badge--proto" data-i18n="badge-craft">● Система крафта</span>
             </div>
 
-            <p class="p-pitch">Management Simulation: спроектировал и задокументировал систему крафта на <b>110+ предметов</b>, готовую к интеграции.</p>
+            <p class="p-pitch" data-i18n="p5-pitch">Management Simulation: спроектировал и задокументировал систему крафта на <b>110+ предметов</b>, готовую к интеграции.</p>
 
             <div class="p-meta">
-              <span class="meta-chip"><b>Жанр:</b> Management Simulation</span>
-              <span class="meta-chip"><b>Платформа:</b> Mobile</span>
+              <span class="meta-chip" data-i18n="p5-genre"><b>Жанр:</b> Management Simulation</span>
+              <span class="meta-chip" data-i18n="p5-plat"><b>Платформа:</b> Mobile</span>
               <span class="meta-chip role">System Designer</span>
             </div>
 
             <div class="p-block">
-              <h4>Обязанности</h4>
+              <h4 data-i18n="h-own">Зона ответственности</h4>
               <ul class="clean">
-                <li>Спроектировал иерархию ресурсов: от базовых материалов до сложных компонентов.</li>
-                <li>Собрал карточки для <b>110+ элементов:</b> иконки, названия, описания, редкости, компоненты крафта.</li>
-                <li>Выстроил цепочки крафта снаряжения, брони и оружия — 4 уровня редкости и 6 тегов на оружие.</li>
-                <li>Согласовывал графику: тон, контраст, очистка иконок, подбор визуала из пака.</li>
-                <li>Проанализировал систему: посчитал зависимости, нашёл узкие места, дал рекомендации по оптимизации.</li>
+                <li data-i18n="p5-o1">Спроектировал иерархию ресурсов: от базовых материалов до сложных компонентов.</li>
+                <li data-i18n="p5-o2">Собрал карточки для <b>110+ элементов:</b> иконки, названия, описания, редкости, компоненты крафта.</li>
+                <li data-i18n="p5-o3">Выстроил цепочки крафта снаряжения, брони и оружия — 4 уровня редкости и 6 тегов на оружие.</li>
+                <li data-i18n="p5-o4">Согласовывал графику: тон, контраст, очистка иконок, подбор визуала из пака.</li>
               </ul>
             </div>
 
             <div class="results">
-              <h4>Результаты</h4>
+              <h4 data-i18n="h-res">Результаты</h4>
               <ul class="clean">
-                <li>Спроектировал и задокументировал систему крафта из <b>110+ предметов</b>, готовую к интеграции.</li>
-                <li>Оформил документ в формате, удобном для парсинга разработчиками.</li>
-                <li>Дал практические рекомендации по оптимизации на основе анализа использования ресурсов.</li>
+                <li data-i18n="p5-r1">Документ структурирован под парсинг разработчиками — интеграция без переработки.</li>
+                <li data-i18n="p5-r2">Анализ ресурсной модели выявил узкие места — с рекомендациями по оптимизации.</li>
               </ul>
             </div>
 
             <div class="materials">
-              <a class="btn btn--sm btn--ghost" href="https://docs.google.com/spreadsheets/d/1pgDcNrnTeFxzZ0w2k4V96u43onhQw7V4XgE65LRoOgk/edit?usp=sharing" target="_blank" rel="noopener">Документ системы крафта ↗</a>
-              <span class="m-note">Полная таблица ресурсов и цепочки</span>
+              <a class="btn btn--sm btn--ghost" href="https://docs.google.com/spreadsheets/d/1pgDcNrnTeFxzZ0w2k4V96u43onhQw7V4XgE65LRoOgk/edit?usp=sharing" target="_blank" rel="noopener" data-i18n="lnk-craft">Документ системы крафта ↗</a>
+              <span class="m-note" data-i18n="note-craft">Полная таблица ресурсов и цепочки</span>
             </div>
           </article>
 
@@ -1075,11 +1130,34 @@
     const toggle = document.getElementById("navToggle");
     const links = document.getElementById("navLinks");
     if (toggle && links) {
-      toggle.addEventListener("click", () => links.classList.toggle("open"));
+      const setMenu = (open) => {
+        links.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      };
+      toggle.addEventListener("click", () => setMenu(!links.classList.contains("open")));
       links.querySelectorAll("a").forEach((a) =>
-        a.addEventListener("click", () => links.classList.remove("open"))
+        a.addEventListener("click", () => setMenu(false))
       );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setMenu(false);
+      });
     }
+
+    // Media slider
+    document.querySelectorAll(".media-slider").forEach((slider) => {
+      const slides = slider.querySelector(".slides");
+      const dots = Array.from(slider.querySelectorAll(".m-dots button"));
+      const count = slides.children.length;
+      let idx = 0;
+      const go = (n) => {
+        idx = (n + count) % count;
+        slides.style.transform = "translateX(-" + idx * 100 + "%)";
+        dots.forEach((d, k) => d.classList.toggle("active", k === idx));
+      };
+      slider.querySelector(".m-prev").addEventListener("click", () => go(idx - 1));
+      slider.querySelector(".m-next").addEventListener("click", () => go(idx + 1));
+      dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+    });
 
     // Reveal on scroll
     const reveals = document.querySelectorAll(".reveal");
@@ -1125,8 +1203,9 @@
       sections.forEach((s) => spy.observe(s));
     }
 
-    // ---------- i18n: RU lives in the HTML; EN overrides below. Add keys to translate more. ----------
+    // ---------- i18n: RU lives in the HTML; EN overrides below. ----------
     const I18N_EN = {
+      "skip": "Skip to projects",
       "nav-about": "About",
       "nav-projects": "Projects",
       "nav-skills": "Skills",
@@ -1135,17 +1214,134 @@
       "about-eyebrow": "01 — ABOUT",
       "about-h2": "Systems design that works for the product",
       "about-intro": "I take systems to release — from goals and documentation to development hand-off and post-launch support.",
+      "about-p1": "My strength is <strong>interconnected game systems</strong>: combat mechanics and progression, PvP, equipment and clan mechanics. On top of that — event content, monetization and LiveOps.",
+      "about-p2": "<strong>I design from the goal</strong>: a system has to be engaging for the player and solve a product problem. I test decisions in playtests and metrics and iterate until they hit the target.",
+      "about-p3": "On a small team I take on <strong>all of game design and art direction</strong>: GDD and configs, UX mockups and work with artists, planning and quality control — taking load off the team at the start.",
+      "mascot-cap": "Read the whole section? Here's a bear.",
+      "sk-l1": "Systems design",
+      "sk-l2": "Economy & monetization",
+      "sk-l3": "LiveOps & content",
+      "sk-l4": "Documentation & production",
+      "sk-l5": "Art direction",
+      "sk-l6": "Engines & graphics",
+      "sk-l7": "Docs & AI",
+      "sk-t-combat": "Combat systems",
+      "sk-t-prog": "Progression",
+      "sk-t-pvp": "PvP & ladders",
+      "sk-t-balance": "Balance & numeric models",
+      "sk-t-econ": "Game economy",
+      "sk-t-loops": "Resource loops",
+      "sk-t-monet": "Monetization points",
+      "sk-t-events": "Seasonal events",
+      "sk-t-bp": "Battle passes",
+      "sk-t-bundles": "Bundles & offers",
+      "sk-t-features": "New features & mechanics",
+      "sk-t-configs": "Configs",
+      "sk-t-prio": "Prioritization",
+      "sk-t-cplan": "Content plan",
+      "sk-t-refs": "Concepts & reference packs",
+      "sk-t-artists": "Curating artists",
+      "sk-t-style": "Shaping the visual style",
       "projects-eyebrow": "02 — PROJECTS",
       "projects-h2": "Selected projects",
       "projects-intro": "From live projects with years of history to prototypes in active development — with role, ownership and outcome noted for each.",
+      "badge-liveops": "● Released · LiveOps",
+      "badge-live": "● Released",
+      "badge-proto": "● Prototyping",
+      "badge-craft": "● Crafting system",
+      "h-context": "Context",
+      "h-own": "Ownership",
+      "h-sys": "Key systems",
+      "h-res": "Results",
+      "lnk-steam": "Steam page ↗",
+      "lnk-gdd": "GDD excerpt ↗",
+      "lnk-craft": "Crafting system doc ↗",
+      "note-gdd-nda": "Full GDD is under NDA",
+      "note-nda": "Full version is under NDA",
+      "note-docs-req": "Documentation excerpts on request",
+      "note-craft": "Full resource table and chains",
+      "p1-genre": "<b>Genre:</b> City-builder · Auto battler · Strategy",
+      "p1-plat": "<b>Platforms:</b> Web · iOS · Android · Steam",
+      "p1-pitch": "Designed the <b>Auto battler direction</b> from scratch and built it into a live City-builder as a standalone mode. In parallel, grew the city part — LiveOps and new mechanics.",
+      "p1-ctx": "Joined when the team was just starting the Auto battler: an early prototype with no documentation or systems design. The job was to turn it into a full game mode and take it to release.",
+      "p1-o1": "<b>Designed the Auto battler from scratch:</b> combat progression, PvP, unit development, clan mechanics, long-term player goals.",
+      "p1-o2": "<b>Owned the mode's key systems as Feature Owner</b> — from goal setting to development hand-off and post-release support.",
+      "p1-o3": "<b>City part:</b> ran LiveOps (seasonal events, balance changes, new monetization points) and shipped new mechanics and features — from idea to production and support.",
+      "p1-o4": "<b>Prepared documentation and UX mockups</b> for artists and reviewed the art against them.",
+      "p1-s1h": "Unit design",
+      "p1-s1p": "Full production cycle: concept, tasks for the art team, role in the army, combat behavior, skills, upgrades, resource and numbers balance.",
+      "p1-s2h": "PvP Arena",
+      "p1-s2p": "Rating system with daily and seasonal rewards, a separate top ladder with fights for specific ranks, UI states for each stage of the season.",
+      "p1-s3h": "Clan 4X mode",
+      "p1-s3p": "A 4X strategy on top of the auto battler: clans capture a map of connected nodes. The core is controlling connections — surround bosses and cut the enemy's supply so their territory stops producing resources.",
+      "p1-s4h": "Squad equipment",
+      "p1-s4p": "Slots, rarity and quality as two independent dimensions, honing, item sets. Guaranteed (honing) and risky (quality) upgrades combined — for different audiences.",
+      "p1-s5h": "Other systems",
+      "p1-s5p": "PvE modes, clan battle pass, retention mechanics (daily boosts, contracts, progress tokens) and more.",
+      "p1-res-intro": "Figures are shares and percentages, no absolutes (NDA).",
+      "p1-r1": "In 7 months the mode grew from 0 to <b>~35% of all</b> revenue, while city revenue <b>didn't drop</b> — new income, not at the city's expense.",
+      "p1-r2": "By own purchases the mode brings <b>≈⅔ of the city's</b>: battle pass, subscriptions, unit offers, mode currencies.",
+      "p1-r3": "<b>~67%</b> of players with access enter battle daily.",
+      "p2-genre": "<b>Genre:</b> Idle · Dress-up",
+      "p2-plat": "<b>Platform:</b> PC (Steam)",
+      "p2-pitch": "Shipped an Idle/Dress-up game on Steam — led design, art direction and production.",
+      "p2-ctx": "In a dress-up game the visuals are the product, so design and art are inseparable. I ran both layers: designed the game systems and shaped the visual style.",
+      "p2-o1": "<b>Design and documentation:</b> GDD, market analysis, references.",
+      "p2-o2": "<b>Art direction:</b> set tasks for characters and UI/UX, approved concepts, final art and animations.",
+      "p2-o3": "<b>Production:</b> tech stack and Steamworks, planning and deadlines, trailer editing.",
+      "p2-r1": "Strong core: <b>11% of players — 100+ hours</b>, 22% — over 20.",
+      "p2-r2": "<b>~57,000 installs</b> and <b>~20,000 players</b> on Steam.",
+      "p2-r3": "Discord community — <b>1,300+ members</b> and growing.",
+      "p3-genre": "<b>Genre:</b> Clicker · Management · Idle",
+      "p3-plat": "<b>Platform:</b> Mobile",
+      "p3-pitch": "Designed every system of a mobile incremental clicker — the game shipped on Google Play.",
+      "p3-o1": "<b>Designed all game systems</b> and the links between them — from the core loop and economy to crafting, skills and prestige.",
+      "p3-o2": "<b>Formula-driven economy, no tables:</b> the cost and effect of any upgrade is computed by formula. Configs lived in a Python/Django admin I designed together with the backend developer.",
+      "p3-o3": "Owned the GDD. Designed UI/UX myself; for art (characters, icons, animations) set references, concepts and feedback.",
+      "p3-o4": "Tuned the balance against production metrics.",
+      "p3-s1h": "Affixes — the core",
+      "p3-s1p": "A base property layer that equipment, skills, heroes and artifacts plug into — a single modifier engine for the whole game.",
+      "p3-s2h": "The Forge",
+      "p3-s2p": "Gear crafting through gacha: item properties and rarity are rolled from tuned pools — Diablo-style loot. The forge itself upgrades to unlock new rarities and odds.",
+      "p3-s3h": "Heroes & skills",
+      "p3-s3p": "Hero leveling and abilities, bonus levels, mana pool and regeneration, skill interactions with other systems.",
+      "p3-s4h": "Prestige & artifacts",
+      "p3-s4p": "Progress reset for a special currency; affix-based artifacts with permanent bonuses, set gacha and their upgrades.",
+      "p3-s5h": "Retention & LiveOps",
+      "p3-s5p": "A mascot with tap rewards, ad-doubling, milestones — mechanics that bring the player back into the session.",
+      "p3-res-intro": "The game shipped deliberately content-limited: core loop first, to gather analytics on live players and expand from data.",
+      "p3-r1": "<b>80% of players complete the FTUE</b>, 64% reach the meta loop (prestige).",
+      "p3-r2": "Retention — <b>D1 32%, D7 15%, D30 5%</b>; D7 is at the genre's upper bound.",
+      "p3-r3": "Core loop validated. Next growth lever — the retention layer: social systems, events, daily structure.",
+      "p4-pitch": "A roguelike-deckbuilder for PC and mobile: designed all systems and assembled a playable prototype.",
+      "p4-genre": "<b>Genre:</b> Roguelike-deckbuilder · Roguelite",
+      "p4-plat": "<b>Platforms:</b> PC (Steam) · Mobile",
+      "p4-o1": "<b>Designed all systems:</b> core loop, combat, encounters, economy, progression.",
+      "p4-o2": "Wrote and maintained the GDD.",
+      "p4-o3": "Wrote specs for developers and supported the prototype build.",
+      "p4-o4": "<b>Owned art direction:</b> final calls on style and visuals, briefs and reference packs, priorities for characters and UI/UX, approving concepts and assets.",
+      "p4-r1": "The prototype was built to spec — playable, with the key systems from the GDD.",
+      "p4-r2": "<b>Internal playtests were positive</b>; the prototype is being refined on feedback.",
+      "p5-pitch": "Management Simulation: designed and documented a crafting system of <b>110+ items</b>, ready for integration.",
+      "p5-genre": "<b>Genre:</b> Management Simulation",
+      "p5-plat": "<b>Platform:</b> Mobile",
+      "p5-o1": "Designed the resource hierarchy: from base materials to complex components.",
+      "p5-o2": "Built cards for <b>110+ items:</b> icons, names, descriptions, rarities, crafting components.",
+      "p5-o3": "Set up crafting chains for gear, armor and weapons — 4 rarity tiers and 6 weapon tags.",
+      "p5-o4": "Approved the graphics: tone, contrast, icon cleanup, visual selection from the pack.",
+      "p5-r1": "The doc is structured for developer parsing — integration without rework.",
+      "p5-r2": "Analysis of the resource model surfaced bottlenecks — with optimization recommendations.",
       "contact-h2": "Let’s talk about a project or role?",
       "contact-p": "Open to interesting work in systems design, economy and LiveOps. The fastest way to reach me is Telegram."
     };
     const DOC_TITLE_EN = "Dmitry Radchenko — Game Designer · Systems, Economy, LiveOps";
+    const DOC_DESC_EN = "Portfolio of Dmitry Radchenko — Game Designer. Systems design, economy, progression, monetization and LiveOps. Empire City, MISHA, Shards of Time, Slot RPG, Space Wanderer.";
     const i18nEls = document.querySelectorAll("[data-i18n]");
     const I18N_ORIG = new Map();
     i18nEls.forEach((el) => I18N_ORIG.set(el, el.innerHTML));
     const DOC_TITLE_RU = document.title;
+    const descMeta = document.querySelector('meta[name="description"]');
+    const DOC_DESC_RU = descMeta ? descMeta.getAttribute("content") : "";
     const langButtons = document.querySelectorAll(".lang-toggle button");
     function setLang(lang) {
       document.documentElement.lang = lang;
@@ -1154,6 +1350,7 @@
         el.innerHTML = lang === "en" && k in I18N_EN ? I18N_EN[k] : I18N_ORIG.get(el);
       });
       document.title = lang === "en" ? DOC_TITLE_EN : DOC_TITLE_RU;
+      if (descMeta) descMeta.setAttribute("content", lang === "en" ? DOC_DESC_EN : DOC_DESC_RU);
       langButtons.forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
       try { localStorage.setItem("lang", lang); } catch (e) {}
     }
